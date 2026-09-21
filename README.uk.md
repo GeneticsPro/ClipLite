@@ -28,7 +28,7 @@
 
 ## Встановлення
 
-1. Завантаж `ClipLite.exe` зі сторінки [Releases](https://github.com/googenetics/ClipLite/releases).
+1. Завантаж `ClipLite.exe` зі сторінки [Releases](https://github.com/GeneticsPro/ClipLite/releases).
 2. Поклади куди завгодно й запусти. Інсталятора немає, поза твоїм профілем користувача нічого не пишеться.
 
 Потрібна Windows 7 SP1 або новіша з .NET Framework 4.0+ — у Windows 8 і новіших він уже вбудований.

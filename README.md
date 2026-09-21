@@ -28,7 +28,7 @@ Everything you copy lands in a searchable history. Pick an entry and it goes str
 
 ## Install
 
-1. Download `ClipLite.exe` from the [Releases](https://github.com/googenetics/ClipLite/releases) page.
+1. Download `ClipLite.exe` from the [Releases](https://github.com/GeneticsPro/ClipLite/releases) page.
 2. Put it anywhere you like and run it. There is no installer and nothing is written outside your user profile.
 
 Requires Windows 7 SP1 or newer with .NET Framework 4.0+ — already part of Windows 8 and later.
