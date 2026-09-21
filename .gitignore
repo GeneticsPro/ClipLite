@@ -1,0 +1,15 @@
+# Build output — ship the executable through GitHub Releases, not the repository
+bin/
+
+# Scratch folder with working material (includes third-party sound files)
+test/
+
+# Local data if the app runs in portable mode
+data/
+
+# Editors / OS
+.vs/
+*.user
+*.suo
+Thumbs.db
+desktop.ini
