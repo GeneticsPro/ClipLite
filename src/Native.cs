@@ -8,6 +8,8 @@ namespace ClipLite
     {
         public const int WM_CLIPBOARDUPDATE = 0x031D;
         public const int WM_HOTKEY = 0x0312;
+        public const int WM_SYSCOMMAND = 0x0112;
+        public const int SC_MINIMIZE = 0xF020;
         public const uint MOD_ALT = 0x1, MOD_CONTROL = 0x2, MOD_SHIFT = 0x4, MOD_WIN = 0x8, MOD_NOREPEAT = 0x4000;
         public const uint EVENT_SYSTEM_FOREGROUND = 3;
         public const uint WINEVENT_OUTOFCONTEXT = 0;

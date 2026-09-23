@@ -137,9 +137,10 @@ namespace ClipLite
             using (var b = new SolidBrush(c)) g.FillPolygon(b, new[] { new PointF(3, 1.5f), new PointF(10, 1.5f), new PointF(13, 4.5f), new PointF(13, 14.5f), new PointF(3, 14.5f) });
         }
 
+        /// <summary>The window icon: the same glyph as the tray, so the app has one face everywhere.</summary>
         public static Icon AppIcon()
         {
-            return BuildIcon(DrawAppGlyph, 16, 20, 24, 32, 48);
+            return BuildIcon(DrawTrayGlyph, 16, 20, 24, 32, 48);
         }
 
         /// <summary>
@@ -149,14 +150,6 @@ namespace ClipLite
         public static Icon TrayIcon()
         {
             return BuildIcon(DrawTrayGlyph, 16, 20, 24, 32);
-        }
-
-        static void DrawAppGlyph(Graphics g)
-        {
-            using (var b = new SolidBrush(Color.FromArgb(78, 140, 255))) g.FillRectangle(b, 6, 5, 20, 25);
-            using (var b = new SolidBrush(Color.FromArgb(235, 240, 250))) g.FillRectangle(b, 9, 10, 14, 17);
-            using (var b = new SolidBrush(Color.FromArgb(40, 50, 70))) g.FillRectangle(b, 11, 2, 10, 6);
-            using (var p = new Pen(Color.FromArgb(78, 140, 255), 2f)) { g.DrawLine(p, 12, 15, 20, 15); g.DrawLine(p, 12, 19, 20, 19); g.DrawLine(p, 12, 23, 17, 23); }
         }
 
         static void DrawTrayGlyph(Graphics g)

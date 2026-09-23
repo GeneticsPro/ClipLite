@@ -90,6 +90,13 @@ namespace ClipLite
         {
             if (m.Msg == Native.WM_CLIPBOARDUPDATE) OnClipboardChanged();
             else if (m.Msg == Native.WM_HOTKEY && (int)m.WParam == HotkeyId) ToggleMain(true);
+            else if (m.Msg == Native.WM_SYSCOMMAND && ((int)m.WParam & 0xFFF0) == Native.SC_MINIMIZE)
+            {
+                // no taskbar button, so a minimized window would sit as a stub above the taskbar:
+                // minimize hides to the tray instead, the same as Close
+                HideMain();
+                return;
+            }
             base.WndProc(ref m);
         }
 
@@ -480,8 +487,14 @@ namespace ClipLite
             editorDirty = false;
             btnSave.Enabled = false;
             if (!store.Lists[shownClip.Collection].Contains(shownClip)) return;
-            try { store.UpdateText(shownClip, txtEditor.Text); } catch { }
+            bool onClipboard = shownClip == clipboardClip && Native.GetClipboardSequenceNumber() == clipboardSeq;
+            bool selected = list.SelectedIndices.Count == 1 && list.Items[list.SelectedIndices[0]] == shownClip
+                && settings.Get("LoadOnSelect", "1") == "1";
+            try { store.UpdateText(shownClip, txtEditor.Text); }
+            catch { return; }
             list.Invalidate();
+            // like ClipMate: the edited clip is the active one, so Ctrl+V in another app pastes the new text
+            if (onClipboard || selected) LoadToClipboard(shownClip);
         }
 
         // ================= actions =================
